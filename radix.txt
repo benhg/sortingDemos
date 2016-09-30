@@ -1,0 +1,35 @@
+
+
+ a radix sort is a non-comparative integer sorting algorithm that sorts data with integer keys by grouping keys by the individual digits which share the same significant position and value
+
+
+
+
+
+
+
+
+Each key is first figuratively dropped into one level of buckets corresponding to the value of the rightmost digit. Each bucket preserves the original order of the keys as the keys are dropped into the bucket. There is a one-to-one correspondence between the buckets and the values that can be represented by the rightmost digit. Then, the process repeats with the next neighbouring more significant digit until there are no more digits to process. In other words:
+
+Take the least significant digit (or group of bits, both being examples of radices) of each key.
+Group the keys based on that digit, but otherwise keep the original order of keys. (This is what makes the LSD radix sort a stable sort.)
+Repeat the grouping process with each more significant digit.
+The sort in step 2 is usually done using bucket sort or counting sort, which are efficient in this case since there are usually only a small number of digits.
+
+An example[edit]
+Original, unsorted list:
+
+170, 45, 75, 90, 802, 2, 24, 66
+Sorting by least significant digit (1s place) gives:
+
+170, 90, 802, 2, 24, 45, 75, 66
+Notice that we keep 802 before 2, because 802 occurred before 2 in the original list, and similarly for pairs 170 & 90 and 45 & 75.
+Sorting by next digit (10s place) gives:
+
+802, 2, 24, 45, 66, 170, 75, 90
+Notice that 802 again comes before 2 as 802 comes before 2 in the previous list.
+Sorting by most significant digit (100s place) gives:
+
+2, 24, 45, 66, 75, 90, 170, 802
+It is important to realize that each of the above steps requires just a single pass over the data, since each item can be placed in its correct bucket without having to be compared with other items.
+
